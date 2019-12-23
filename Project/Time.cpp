@@ -37,7 +37,7 @@ void Time::setTime(double work_day, double work_hour, double holiday_day, double
 double Time::getDay(int flag) {switch(flag){case 1:return this->work_day;case 2:return this->holiday_day;case 3: return this->notwork_day;default: return 0;}}
 double Time::getHour(int flag) {switch(flag){case 1:return this->work_hour;case 2:return this->holiday_hour;case 3: return this->notwork_hour;default: return 0;}}
 
-Time WorkTime::operator+(Time Time1) {
+/*Time WorkTime::operator+(Time Time1) {
     Time Time2;
     Time2.setTime(Time1.getDay(1)+this->work_hour,Time1.getHour(1)+this->work_hour,\
     Time1.getDay(2),Time1.getHour(2),Time1.getDay(3),Time1.getHour(3));
@@ -79,4 +79,4 @@ Time NotWorkTime::operator-(Time Time1) {
     Time2.setTime(Time1.getDay(1),Time1.getHour(1),Time1.getDay(2),Time1.getHour(2),Time1.getDay(3)-this->notwork_day,Time1.getHour(3)-this->notwork_hour);
     Time2.convert(Time2.getDay(3),Time2.getHour(3),3);
     return Time2;
-}
+}*/

@@ -8,7 +8,7 @@ template<class T1,class T2>
 LinkedList<T1,T2>::LinkedList() {
     head= new Node<T2>;
     head->next=nullptr;
-    length=1;
+    length=0;
 }
 template<class T1,class T2>
 bool cmp(T1 t1,T1 t2) {return t1.data.getnum()>t2.data.getnum();}
@@ -18,17 +18,17 @@ vector<T1>* LinkedList<T1,T2>::Search(T2 t1,int s1,int s2) {
     static vector<T1> vec;
     vec.clear();
     Node<T2>* temp=head;
-    for(;temp->next!= nullptr;temp++){
+    for(;temp->next!= nullptr;temp=temp->next){
         temp->data.setselect(s1);temp->data.setSelect(s2);
         if(t1 == temp->data){temp->data.setselect(32),temp->data.setSelect(7);vec.push_back(*temp);}
     }
-    //å¦‚æœvecä¸ºç©ºï¼Œè¿”å›ç©ºæŒ‡é’ˆ
+    //Èç¹ûvecÎª¿Õ£¬·µ»Ø¿ÕÖ¸Õë
     if(vec.empty()){return nullptr;}
-    //å¦‚æœvectorä¸ä¸ºç©ºï¼Œæ ¹æ®numæ’åºåè¿”å›vecçš„åœ°å€
+    //Èç¹ûvector²»Îª¿Õ£¬¸ù¾İnumÅÅĞòºó·µ»ØvecµÄµØÖ·
     if(vec.size() <= 1) return &vec;
     Node<T2> *p = &vec[0];
     Node<T2> *q;
-    //TODO::Node<T> *p = head->next;å¯èƒ½æœ‰é—®é¢˜ï¼ˆå¤§æ¦‚ç‡æ²¡é—®é¢˜ï¼‰
+    //TODO::Node<T> *p = head->next;¿ÉÄÜÓĞÎÊÌâ£¨´ó¸ÅÂÊÃ»ÎÊÌâ£©
     for(int i=0;i<vec.size()-1;i++){
         for (int j=i+1;j<vec.size();j++){
             q=&vec[j];
@@ -45,7 +45,7 @@ vector<T1>* LinkedList<T1,T2>::Search(T2 t1,int s1,int s2) {
 
 template<class T1,class T2>
 void LinkedList<T1,T2>::Add(T2 t1) {
-    //TODO::è®°å¾—åœ¨æœ€å¤§çš„vectoræ•°ç»„é‡Œè¿›è¡Œsearchï¼ŒæŸ¥çœ‹ç¼–å·æ˜¯å¦é‡å¤
+    //TODO::¼ÇµÃÔÚ×î´óµÄvectorÊı×éÀï½øĞĞsearch£¬²é¿´±àºÅÊÇ·ñÖØ¸´
     Node<T2> *temp=new Node<T2>(t1, head);
     head=temp;
     length++;
@@ -54,10 +54,10 @@ void LinkedList<T1,T2>::Add(T2 t1) {
 template<class T1,class T2>
 int LinkedList<T1,T2>::Delete(T2 t1) {
     t1.setselect(1);
-    //æŸ¥æ‰¾åˆ é™¤ä½ç½®
+    //²éÕÒÉ¾³ıÎ»ÖÃ
     Node<T2> *temp=head;
-    for(;temp->next!= nullptr;temp++){
-        if(temp->next->data == t1){
+    for(;temp->next!= nullptr;temp=temp->next){
+        if(t1 == temp->next->data ){
             Node<T2> *temp2=temp->next->next;
             delete temp->next;
             temp->next=temp2;
@@ -97,17 +97,17 @@ vector<T1*>* LinkedList<T1,T2>::Edit(T2 t1,int s1,int s2) {
     static vector<T1*> vec;
     vec.clear();
     Node<T2>* temp=head;
-    for(;temp->next!= nullptr;temp++){
+    for(;temp->next!= nullptr;temp=temp->next){
         temp->data.setselect(s1);temp->data.setSelect(s2);
         if(t1 == temp->data){temp->data.setselect(32),temp->data.setSelect(7);vec.push_back(temp);}
     }
-    //å¦‚æœvecä¸ºç©ºï¼Œè¿”å›0
+    //Èç¹ûvecÎª¿Õ£¬·µ»Ø0
     if(vec.empty()){return nullptr;}
-    //å¦‚æœvectorä¸ä¸ºç©ºï¼Œæ ¹æ®numæ’åºåè¿”å›vecçš„åœ°å€
+    //Èç¹ûvector²»Îª¿Õ£¬¸ù¾İnumÅÅĞòºó·µ»ØvecµÄµØÖ·
     if(vec.size() > 1){
         Node<T2> **p = &vec[0];
         Node<T2> **q;
-        //TODO::Node<T> *p = head->next;å¯èƒ½æœ‰é—®é¢˜ï¼ˆå¤§æ¦‚ç‡æ²¡é—®é¢˜ï¼‰
+        //TODO::Node<T> *p = head->next;¿ÉÄÜÓĞÎÊÌâ£¨´ó¸ÅÂÊÃ»ÎÊÌâ£©
         for(int i=0;i<vec.size()-1;i++){
             for (int j=i+1;j<vec.size();j++){
                 q=&vec[j];
@@ -155,13 +155,13 @@ vector<T1> *LinkedList<T1,T2>::RangeSearch(T2 t1, T2 t2,int s1,int s2) {
     Node<T2>* temp=head;
     t1.setselect(s1);t1.setSelect(s2);t2.setselect(s1);t2.setSelect(s2);
     if(t1 > t2){
-        for(;temp->next!= nullptr;temp++){
+        for(;temp->next!= nullptr;temp=temp->next){
             temp->data.setselect(s1);temp->data.setSelect(s2);
             if((t1 > temp->data) && (temp->data > t2)){vec.push_back(*temp);}
         }
         return &vec;
     }else{
-        for(;temp->next!= nullptr;temp++){
+        for(;temp->next!= nullptr;temp=temp->next){
             temp->data.setselect(s1);temp->data.setSelect(s2);
             if((t1 < temp->data) && (temp->data < t2)){vec.push_back(*temp);}
         }
@@ -173,7 +173,7 @@ template<class T1,class T2>
 void LinkedList<T1,T2>::Sort() {
     if(length <= 1) return;
     Node<T2> *p = head;
-    //TODO::Node<T> *p = head->next;å¯èƒ½æœ‰é—®é¢˜ï¼ˆå¤§æ¦‚ç‡æ²¡é—®é¢˜ï¼‰
+    //TODO::Node<T> *p = head->next;¿ÉÄÜÓĞÎÊÌâ£¨´ó¸ÅÂÊÃ»ÎÊÌâ£©
     for(int i=0;i<length-1;i++){
         Node<T2> *q = p->next;
     for (int j=i+1;j<length;j++){

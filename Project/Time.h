@@ -8,10 +8,10 @@ using namespace std;
 
 /*
  * flag:
- * 1、work
- * 2、holiday
- * 3、notwork
- * 4、select2 {1,2,4}
+ * 1��work
+ * 2��holiday
+ * 3��notwork
+ * 4��select2 {1,2,4}
  */
 class Time {
 public:
@@ -22,7 +22,6 @@ public:
     int getSelect(){return this->select2;}
     void setTime(double work_day=0,double work_hour=0,double holiday_day=0,double holiday_hour=0,double notwork_day=0,double notwork_hour=0);
     void setSelect(int select2){this->select2=select2;}
-    //TODO::如果仅输入day，初始化时记得将其转换为hour，实现的时候记得转换回去
 protected:
     double work_day;
     double holiday_day;
@@ -32,7 +31,7 @@ protected:
     double notwork_hour;
     int select2;
 };
-class WorkTime : public Time{
+/*class WorkTime : public Time{
 public:
     WorkTime(double work_day=0,double work_hour=0):Time(work_day,work_hour){};
     Time operator+ (Time);
@@ -49,5 +48,5 @@ public:
     NotWorkTime(double notwork_day=0,double notwork_hour=0):Time(notwork_day,notwork_hour){};
     Time operator+ (Time);
     Time operator- (Time);
-};
+};*/
 #endif //PROJECT_TIME_H

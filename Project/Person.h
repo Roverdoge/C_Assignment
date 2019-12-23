@@ -7,31 +7,31 @@
 #define PROJECT_PERSON_H
 using namespace std;
 /*
- * numï¼šint,ç¼–å·
- * name:string,åå­—
- * sex:int,æ€§åˆ«
- * section:string,éƒ¨é—¨
- * level:int,çº§åˆ«
- * work_day/hour:double,å·¥ä½œæ—¶é—´
- * holiday_day/hour:double,å‡æœŸæ—¶é—´
- * notwork_day/hour:double,ç”Ÿç—…æ²¡å·¥ä½œçš„æ—¶é—´
+ * num£ºint,±àºÅ
+ * name:string,Ãû×Ö
+ * sex:int,ĞÔ±ğ
+ * section:string,²¿ÃÅ
+ * level:int,¼¶±ğ
+ * work_day/hour:double,¹¤×÷Ê±¼ä
+ * holiday_day/hour:double,¼ÙÆÚÊ±¼ä
+ * notwork_day/hour:double,Éú²¡Ã»¹¤×÷µÄÊ±¼ä
  * select:int,{1,2,4,8,16}
  * select2:int,{1,2,4}
  */
 class Manager: public Staff,public Time{
         friend std::ostream &operator<<(std::ostream &output, const Manager &Manager) {
         std::string sex;
-        if(Manager.sex==1){sex="ç”·";} else if(Manager.sex==-1){sex="å¥³";}else{sex="";}
+        if(Manager.sex==1){sex="ÄĞ";} else if(Manager.sex==-1){sex="Å®";}else{sex="";}
         int i=Manager.select;
-        if(((i>>1)&1)==1){output<<"å‘˜å·¥ç¼–å·ä¸ºï¼š"<<Manager.num<<"ï¼›";}
-        if(((i>>1)&1)==1){output<<"å‘˜å·¥å§“åä¸ºï¼š"<<Manager.name<<"ï¼›";}
-        if(((i>>1)&1)==1){output<<"å‘˜å·¥æ€§åˆ«ä¸ºï¼š"<<sex<<"ï¼›";}
-        if(((i>>1)&1)==1){output<<"å‘˜å·¥éƒ¨é—¨ä¸ºï¼š"<<Manager.section<<"ï¼›";}
-        if(((i>>1)&1)==1){output<<"å‘˜å·¥çº§åˆ«ä¸ºï¼š"<<Manager.level<<"ï¼›";}
+        if(((i>>1)&1)==1){output<<"Ô±¹¤±àºÅÎª£º"<<Manager.num<<"£»";}
+        if(((i>>1)&1)==1){output<<"Ô±¹¤ĞÕÃûÎª£º"<<Manager.name<<"£»";}
+        if(((i>>1)&1)==1){output<<"Ô±¹¤ĞÔ±ğÎª£º"<<sex<<"£»";}
+        if(((i>>1)&1)==1){output<<"Ô±¹¤²¿ÃÅÎª£º"<<Manager.section<<"£»";}
+        if(((i>>1)&1)==1){output<<"Ô±¹¤¼¶±ğÎª£º"<<Manager.level<<"£»";}
         i=Manager.select2;
-        if(((i>>1)&1)==1){output<<"å·¥ä½œäº†çš„æ—¥é•¿ä¸ºï¼š"<<Manager.work_day<<"ï¼›"<<"å·¥ä½œäº†çš„æ—¶é•¿ä¸ºï¼š"<<Manager.work_hour<<"ï¼›";}
-        if(((i>>1)&1)==1){output<<"å¸¦è–ªä¼‘å‡çš„æ—¥é•¿ä¸ºï¼š"<<Manager.holiday_day<<"ï¼›"<<"å¸¦è–ªä¼‘å‡çš„æ—¶é•¿ä¸ºï¼š"<<Manager.holiday_hour<<"ï¼›";}
-        if(((i>>1)&1)==1){output<<"ç”Ÿç—…æ²¡æœ‰å·¥ä½œçš„æ—¥é•¿ä¸ºï¼š"<<Manager.work_day<<"ï¼›"<<"ç”Ÿç—…æ²¡æœ‰å·¥ä½œçš„æ—¶é•¿ä¸ºï¼š"<<Manager.work_hour<<"ï¼›";}
+        if(((i>>1)&1)==1){output<<"¹¤×÷ÁËµÄÈÕ³¤Îª£º"<<Manager.work_day<<"£»"<<"¹¤×÷ÁËµÄÊ±³¤Îª£º"<<Manager.work_hour<<"£»";}
+        if(((i>>1)&1)==1){output<<"´øĞ½Ğİ¼ÙµÄÈÕ³¤Îª£º"<<Manager.holiday_day<<"£»"<<"´øĞ½Ğİ¼ÙµÄÊ±³¤Îª£º"<<Manager.holiday_hour<<"£»";}
+        if(((i>>1)&1)==1){output<<"Éú²¡Ã»ÓĞ¹¤×÷µÄÈÕ³¤Îª£º"<<Manager.work_day<<"£»"<<"Éú²¡Ã»ÓĞ¹¤×÷µÄÊ±³¤Îª£º"<<Manager.work_hour<<"£»";}
         output<<std::endl;
         return output;
     }
@@ -58,17 +58,17 @@ private:
 class Technician: public Staff,public Time{
     friend std::ostream &operator<<(std::ostream &output, const Technician &Technician) {
         std::string sex;
-        if(Technician.sex==1){sex="ç”·";} else if(Technician.sex==-1){sex="å¥³";}else{sex="";}
+        if(Technician.sex==1){sex="ÄĞ";} else if(Technician.sex==-1){sex="Å®";}else{sex="";}
         int i=Technician.select;
-        if(((i>>1)&1)==1){output<<"å‘˜å·¥ç¼–å·ä¸ºï¼š"<<Technician.num<<"ï¼›";}
-        if(((i>>1)&1)==1){output<<"å‘˜å·¥å§“åä¸ºï¼š"<<Technician.name<<"ï¼›";}
-        if(((i>>1)&1)==1){output<<"å‘˜å·¥æ€§åˆ«ä¸ºï¼š"<<sex<<"ï¼›";}
-        if(((i>>1)&1)==1){output<<"å‘˜å·¥éƒ¨é—¨ä¸ºï¼š"<<Technician.section<<"ï¼›";}
-        if(((i>>1)&1)==1){output<<"å‘˜å·¥çº§åˆ«ä¸ºï¼š"<<Technician.level<<"ï¼›";}
+        if(((i>>1)&1)==1){output<<"Ô±¹¤±àºÅÎª£º"<<Technician.num<<"£»";}
+        if(((i>>1)&1)==1){output<<"Ô±¹¤ĞÕÃûÎª£º"<<Technician.name<<"£»";}
+        if(((i>>1)&1)==1){output<<"Ô±¹¤ĞÔ±ğÎª£º"<<sex<<"£»";}
+        if(((i>>1)&1)==1){output<<"Ô±¹¤²¿ÃÅÎª£º"<<Technician.section<<"£»";}
+        if(((i>>1)&1)==1){output<<"Ô±¹¤¼¶±ğÎª£º"<<Technician.level<<"£»";}
         i=Technician.select2;
-        if(((i>>1)&1)==1){output<<"å·¥ä½œäº†çš„æ—¥é•¿ä¸ºï¼š"<<Technician.work_day<<"ï¼›"<<"å·¥ä½œäº†çš„æ—¶é•¿ä¸ºï¼š"<<Technician.work_hour<<"ï¼›";}
-        if(((i>>1)&1)==1){output<<"å¸¦è–ªä¼‘å‡çš„æ—¥é•¿ä¸ºï¼š"<<Technician.holiday_day<<"ï¼›"<<"å¸¦è–ªä¼‘å‡çš„æ—¶é•¿ä¸ºï¼š"<<Technician.holiday_hour<<"ï¼›";}
-        if(((i>>1)&1)==1){output<<"ç”Ÿç—…æ²¡æœ‰å·¥ä½œçš„æ—¥é•¿ä¸ºï¼š"<<Technician.work_day<<"ï¼›"<<"ç”Ÿç—…æ²¡æœ‰å·¥ä½œçš„æ—¶é•¿ä¸ºï¼š"<<Technician.work_hour<<"ï¼›";}
+        if(((i>>1)&1)==1){output<<"¹¤×÷ÁËµÄÈÕ³¤Îª£º"<<Technician.work_day<<"£»"<<"¹¤×÷ÁËµÄÊ±³¤Îª£º"<<Technician.work_hour<<"£»";}
+        if(((i>>1)&1)==1){output<<"´øĞ½Ğİ¼ÙµÄÈÕ³¤Îª£º"<<Technician.holiday_day<<"£»"<<"´øĞ½Ğİ¼ÙµÄÊ±³¤Îª£º"<<Technician.holiday_hour<<"£»";}
+        if(((i>>1)&1)==1){output<<"Éú²¡Ã»ÓĞ¹¤×÷µÄÈÕ³¤Îª£º"<<Technician.work_day<<"£»"<<"Éú²¡Ã»ÓĞ¹¤×÷µÄÊ±³¤Îª£º"<<Technician.work_hour<<"£»";}
         output<<std::endl;
         return output;
     }
@@ -95,17 +95,17 @@ private:
 class SalesMan: public Staff, public Time{
     friend std::ostream &operator<<(std::ostream &output, const SalesMan &Salesman) {
         std::string sex;
-        if(Salesman.sex==1){sex="ç”·";} else if(Salesman.sex==-1){sex="å¥³";}else{sex="";}
+        if(Salesman.sex==1){sex="ÄĞ";} else if(Salesman.sex==-1){sex="Å®";}else{sex="";}
         int i=Salesman.select;
-        if(((i>>1)&1)==1){output<<"å‘˜å·¥ç¼–å·ä¸ºï¼š"<<Salesman.num<<"ï¼›";}
-        if(((i>>1)&1)==1){output<<"å‘˜å·¥å§“åä¸ºï¼š"<<Salesman.name<<"ï¼›";}
-        if(((i>>1)&1)==1){output<<"å‘˜å·¥æ€§åˆ«ä¸ºï¼š"<<sex<<"ï¼›";}
-        if(((i>>1)&1)==1){output<<"å‘˜å·¥éƒ¨é—¨ä¸ºï¼š"<<Salesman.section<<"ï¼›";}
-        if(((i>>1)&1)==1){output<<"å‘˜å·¥çº§åˆ«ä¸ºï¼š"<<Salesman.level<<"ï¼›";}
+        if(((i>>1)&1)==1){output<<"Ô±¹¤±àºÅÎª£º"<<Salesman.num<<"£»";}
+        if(((i>>1)&1)==1){output<<"Ô±¹¤ĞÕÃûÎª£º"<<Salesman.name<<"£»";}
+        if(((i>>1)&1)==1){output<<"Ô±¹¤ĞÔ±ğÎª£º"<<sex<<"£»";}
+        if(((i>>1)&1)==1){output<<"Ô±¹¤²¿ÃÅÎª£º"<<Salesman.section<<"£»";}
+        if(((i>>1)&1)==1){output<<"Ô±¹¤¼¶±ğÎª£º"<<Salesman.level<<"£»";}
         i=Salesman.select2;
-        if(((i>>1)&1)==1){output<<"å·¥ä½œäº†çš„æ—¥é•¿ä¸ºï¼š"<<Salesman.work_day<<"ï¼›"<<"å·¥ä½œäº†çš„æ—¶é•¿ä¸ºï¼š"<<Salesman.work_hour<<"ï¼›";}
-        if(((i>>1)&1)==1){output<<"å¸¦è–ªä¼‘å‡çš„æ—¥é•¿ä¸ºï¼š"<<Salesman.holiday_day<<"ï¼›"<<"å¸¦è–ªä¼‘å‡çš„æ—¶é•¿ä¸ºï¼š"<<Salesman.holiday_hour<<"ï¼›";}
-        if(((i>>1)&1)==1){output<<"ç”Ÿç—…æ²¡æœ‰å·¥ä½œçš„æ—¥é•¿ä¸ºï¼š"<<Salesman.work_day<<"ï¼›"<<"ç”Ÿç—…æ²¡æœ‰å·¥ä½œçš„æ—¶é•¿ä¸ºï¼š"<<Salesman.work_hour<<"ï¼›";}
+        if(((i>>1)&1)==1){output<<"¹¤×÷ÁËµÄÈÕ³¤Îª£º"<<Salesman.work_day<<"£»"<<"¹¤×÷ÁËµÄÊ±³¤Îª£º"<<Salesman.work_hour<<"£»";}
+        if(((i>>1)&1)==1){output<<"´øĞ½Ğİ¼ÙµÄÈÕ³¤Îª£º"<<Salesman.holiday_day<<"£»"<<"´øĞ½Ğİ¼ÙµÄÊ±³¤Îª£º"<<Salesman.holiday_hour<<"£»";}
+        if(((i>>1)&1)==1){output<<"Éú²¡Ã»ÓĞ¹¤×÷µÄÈÕ³¤Îª£º"<<Salesman.work_day<<"£»"<<"Éú²¡Ã»ÓĞ¹¤×÷µÄÊ±³¤Îª£º"<<Salesman.work_hour<<"£»";}
         output<<std::endl;
         return output;
     }
@@ -132,17 +132,17 @@ private:
 class SalesManager: public Staff,public Time{
     friend std::ostream &operator<<(std::ostream &output, const SalesManager &SalesManager) {
         std::string sex;
-        if(SalesManager.sex==1){sex="ç”·";} else if(SalesManager.sex==-1){sex="å¥³";}else{sex="";}
+        if(SalesManager.sex==1){sex="ÄĞ";} else if(SalesManager.sex==-1){sex="Å®";}else{sex="";}
         int i=SalesManager.select;
-        if(((i>>1)&1)==1){output<<"å‘˜å·¥ç¼–å·ä¸ºï¼š"<<SalesManager.num<<"ï¼›";}
-        if(((i>>1)&1)==1){output<<"å‘˜å·¥å§“åä¸ºï¼š"<<SalesManager.name<<"ï¼›";}
-        if(((i>>1)&1)==1){output<<"å‘˜å·¥æ€§åˆ«ä¸ºï¼š"<<sex<<"ï¼›";}
-        if(((i>>1)&1)==1){output<<"å‘˜å·¥éƒ¨é—¨ä¸ºï¼š"<<SalesManager.section<<"ï¼›";}
-        if(((i>>1)&1)==1){output<<"å‘˜å·¥çº§åˆ«ä¸ºï¼š"<<SalesManager.level<<"ï¼›";}
+        if(((i>>1)&1)==1){output<<"Ô±¹¤±àºÅÎª£º"<<SalesManager.num<<"£»";}
+        if(((i>>1)&1)==1){output<<"Ô±¹¤ĞÕÃûÎª£º"<<SalesManager.name<<"£»";}
+        if(((i>>1)&1)==1){output<<"Ô±¹¤ĞÔ±ğÎª£º"<<sex<<"£»";}
+        if(((i>>1)&1)==1){output<<"Ô±¹¤²¿ÃÅÎª£º"<<SalesManager.section<<"£»";}
+        if(((i>>1)&1)==1){output<<"Ô±¹¤¼¶±ğÎª£º"<<SalesManager.level<<"£»";}
         i=SalesManager.select2;
-        if(((i>>1)&1)==1){output<<"å·¥ä½œäº†çš„æ—¥é•¿ä¸ºï¼š"<<SalesManager.work_day<<"ï¼›"<<"å·¥ä½œäº†çš„æ—¶é•¿ä¸ºï¼š"<<SalesManager.work_hour<<"ï¼›";}
-        if(((i>>1)&1)==1){output<<"å¸¦è–ªä¼‘å‡çš„æ—¥é•¿ä¸ºï¼š"<<SalesManager.holiday_day<<"ï¼›"<<"å¸¦è–ªä¼‘å‡çš„æ—¶é•¿ä¸ºï¼š"<<SalesManager.holiday_hour<<"ï¼›";}
-        if(((i>>1)&1)==1){output<<"ç”Ÿç—…æ²¡æœ‰å·¥ä½œçš„æ—¥é•¿ä¸ºï¼š"<<SalesManager.work_day<<"ï¼›"<<"ç”Ÿç—…æ²¡æœ‰å·¥ä½œçš„æ—¶é•¿ä¸ºï¼š"<<SalesManager.work_hour<<"ï¼›";}
+        if(((i>>1)&1)==1){output<<"¹¤×÷ÁËµÄÈÕ³¤Îª£º"<<SalesManager.work_day<<"£»"<<"¹¤×÷ÁËµÄÊ±³¤Îª£º"<<SalesManager.work_hour<<"£»";}
+        if(((i>>1)&1)==1){output<<"´øĞ½Ğİ¼ÙµÄÈÕ³¤Îª£º"<<SalesManager.holiday_day<<"£»"<<"´øĞ½Ğİ¼ÙµÄÊ±³¤Îª£º"<<SalesManager.holiday_hour<<"£»";}
+        if(((i>>1)&1)==1){output<<"Éú²¡Ã»ÓĞ¹¤×÷µÄÈÕ³¤Îª£º"<<SalesManager.work_day<<"£»"<<"Éú²¡Ã»ÓĞ¹¤×÷µÄÊ±³¤Îª£º"<<SalesManager.work_hour<<"£»";}
         output<<std::endl;
         return output;
     }

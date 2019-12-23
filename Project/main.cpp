@@ -72,6 +72,7 @@ void Add(){
             cout<<"示例：1 张三 1 售前 0 0 0 0 0 0 0"<<endl;
             getchar();
             getline(std::cin,data);
+            data=data+' ';
             for(index=0,pos=0,flag=0,c=&data[0];*c!='\0';c++,index++){
                 if(*c==' '){
                 flag++;
@@ -92,13 +93,18 @@ void Add(){
                 pos=index+1;
                 }
             }if(m.getDay(2)*4+m.getHour(2)>24){cout<<"带薪休假时间过长！";return;}if(m.getDay(3)*4+m.getHour(3)>16){cout<<"病假时间过长！";return;}t.setnum(m.getnum());sale.setnum(m.getnum());sm.setnum(m.getnum());
-            if(Managers->Search(m,1,0)==nullptr&&Technicians->Search(t,1,0)==nullptr&&SalesMans->Search(sale,1,0)==nullptr&&SalesManagers->Search(sm,1,0)==nullptr){Managers->Add(m);Managers->Sort();}else{cout<<"员工号码已存在！";}
+            if(Managers->Search(m,1,0)==nullptr&&Technicians->Search(t,1,0)==nullptr&&SalesMans->Search(sale,1,0)==nullptr&&SalesManagers->Search(sm,1,0)==nullptr){
+                Managers->Add(m);Managers->Sort();
+            }
+            else{cout<<"员工号码已存在！";}
             return;
         case 2:
             cout<<"请以空格为分隔符，按照编号，姓名，性别（男为1，女为-1），部门，级别，已工作日长，已工作时长，已带薪休假日长，已带薪休假时长，已请病假日长，已请病假时长的顺序，在一行中输入该人员的各种信息，以回车结尾"<<endl;
             cout<<"示例：1 张三 1 售前 0 0 0 0 0 0 0"<<endl;
             getchar();
             getline(std::cin,data);
+            data=data+' ';
+            data=data+' ';
             for(index=0,pos=0,flag=0,c=&data[0];*c!='\0';c++,index++){
                 if(*c==' '){
                     flag++;
@@ -127,6 +133,7 @@ void Add(){
             cout<<"示例：1 张三 1 售前 0 0 0 0 0 0 0"<<endl;
             getchar();
             getline(std::cin,data);
+            data=data+' ';
             for(index=0,pos=0,flag=0,c=&data[0];*c!='\0';c++,index++){
                 if(*c==' '){
                     flag++;
@@ -155,6 +162,7 @@ void Add(){
             cout<<"示例：1 张三 1 售前 0 0 0 0 0 0 0"<<endl;
             getchar();
             getline(std::cin,data);
+            data=data+' ';
             for(index=0,pos=0,flag=0,c=&data[0];*c!='\0';c++,index++){
                 if(*c==' '){
                     flag++;
@@ -180,35 +188,6 @@ void Add(){
             return;
         default:cout<<"输入错误！"<<endl;break;
     }
-}
-void Write(){
-    cout<<"请输入要写入的文件名（如果已存在会覆盖）,输入0为默认（1.dat）"<<endl;
-    string s;
-    cin>>s;
-    if(s=="0"){s="1.dat";}
-    File f;
-    f.writeFile_Managers<LinkedList<Node<Manager>,Manager>,Manager>(s);
-    f.writeFile_Technicians<LinkedList<Node<Technician>,Technician>,Technician>(s);
-    f.writeFile_SalesMans<LinkedList<Node<SalesMan>,SalesMan>,SalesMan>(s);
-    f.writeFile_SalesManagers<LinkedList<Node<SalesManager>,SalesManager>,SalesManager>(s);
-}
-void Read(){
-    cout<<"请输入要读取的文件名,输入0为默认（1.dat）"<<endl;
-    string s;
-    cin>>s;
-    if(s=="0"){s="1.dat";}
-    File f;
-    ifstream infile;
-    infile.open(s,ios::in);
-    try {
-        f.readFile_Managers<LinkedList<Node<Manager>,Manager>,Manager>(s,infile);
-    }catch(string e){
-        cout<<e<<endl;return;
-    }
-    f.readFile_Technicians<LinkedList<Node<Technician>,Technician>,Technician>(s,infile);
-    f.readFile_SalesMans<LinkedList<Node<SalesMan>,SalesMan>,SalesMan>(s,infile);
-    f.readFile_SalesManagers<LinkedList<Node<SalesManager>,SalesManager>,SalesManager>(s,infile);
-    infile.close();
 }
 void Search(){
     int i,i1,a;
@@ -303,6 +282,7 @@ void Search(){
             case 1:
                 cout<<"请输入你要查询的员工编号范围（不包括）,以空格分隔：";
                 cin>>i>>i1;
+                m.setnum(i);m1.setnum(i1);t.setnum(i);t1.setnum(i1);sale.setnum(i);sale1.setnum(i1);sm.setnum(i);sm.setnum(i1);
                 vecm=Managers->RangeSearch(m,m1,1,0);vect=Technicians->RangeSearch(t,t1,1,0);vecs=SalesMans->RangeSearch(sale,sale1,1,0);vecsm=SalesManagers->RangeSearch(sm,sm1,1,0);
                 if(vecm==nullptr&&vect==nullptr&&vecs==nullptr&&vecsm==nullptr){cout<<"无此类员工！";break;}
                 if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){cout<<itm->data;}}
@@ -312,6 +292,7 @@ void Search(){
                 break;
             case 2:cout<<"请输入你要查询的员工级别范围（不包括）,以空格分隔：";
                 cin>>i>>i1;
+                m.setlevel(i);m1.setlevel(i1);t.setlevel(i);t1.setlevel(i1);sale.setlevel(i);sale1.setlevel(i1);sm.setlevel(i);sm.setlevel(i1);
                 vecm=Managers->RangeSearch(m,m1,16,0);vect=Technicians->RangeSearch(t,t1,16,0);vecs=SalesMans->RangeSearch(sale,sale1,16,0);vecsm=SalesManagers->RangeSearch(sm,sm1,16,0);
                 if(vecm==nullptr&&vect==nullptr&&vecs==nullptr&&vecsm==nullptr){cout<<"无此类员工！";break;}
                 if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){cout<<itm->data;}}
@@ -321,6 +302,8 @@ void Search(){
                 break;
             case 3:cout<<"请输入你要查询的员工工作时间（小时）范围（不包括）,以空格分隔：";
                 cin>>i>>i1;
+                m.setnum(i);m1.setnum(i1);t.setnum(i);t1.setnum(i1);sale.setnum(i);sale1.setnum(i1);sm.setnum(i);sm.setnum(i1);
+                //TODO::set sth..
                 vecm=Managers->RangeSearch(m,m1,0,1);vect=Technicians->RangeSearch(t,t1,0,1);vecs=SalesMans->RangeSearch(sale,sale1,0,1);vecsm=SalesManagers->RangeSearch(sm,sm1,0,1);
                 if(vecm==nullptr&&vect==nullptr&&vecs==nullptr&&vecsm==nullptr){cout<<"无此类员工！";break;}
                 if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){cout<<itm->data;}}
@@ -375,31 +358,38 @@ void Edit(){
                     cin>>s;m.setname(s);t.setname(s);sale.setname(s);sm.setname(s);
                     vecm=Managers->Edit(m,2,0);vect=Technicians->Edit(t,2,0);vecs=SalesMans->Edit(sale,2,0);vecsm=SalesManagers->Edit(sm,2,0);
                     if(vecm==nullptr&&vect==nullptr&&vecs==nullptr&&vecsm==nullptr){cout<<"无此员工！";return;}
+                    break;
                 case 3:cout<<"请输入你要修改的员工性别(男为1，女为-1)：";
                     cin>>i;if(i!=1&&i!=-1){cout<<"输入错误!";break;}
                     m.setsex(i);t.setsex(i);sale.setsex(i);sm.setsex(i);
                     vecm=Managers->Edit(m,4,0);vect=Technicians->Edit(t,4,0);vecs=SalesMans->Edit(sale,4,0);vecsm=SalesManagers->Edit(sm,4,0);
                     if(vecm==nullptr&&vect==nullptr&&vecs==nullptr&&vecsm==nullptr){cout<<"无此员工！";return;}
+                    break;
                 case 4:cout<<"请输入你要修改的部门名称：";
                     cin>>s;m.setsection(s);t.setsection(s);sale.setsection(s);sm.setsection(s);
                     vecm=Managers->Edit(m,8,0);vect=Technicians->Edit(t,8,0);vecs=SalesMans->Edit(sale,8,0);vecsm=SalesManagers->Edit(sm,8,0);
                     if(vecm==nullptr&&vect==nullptr&&vecs==nullptr&&vecsm==nullptr){cout<<"无此员工！";return;}
+                    break;
                 case 5:cout<<"请输入你要修改的员工级别：";
                     cin>>i;m.setlevel(i);t.setlevel(i);sale.setlevel(i);sm.setlevel(i);
                     vecm=Managers->Edit(m,16,0);vect=Technicians->Edit(t,16,0);vecs=SalesMans->Edit(sale,16,0);vecsm=SalesManagers->Edit(sm,16,0);
                     if(vecm==nullptr&&vect==nullptr&&vecs==nullptr&&vecsm==nullptr){cout<<"无此员工！";return;}
+                    break;
                 case 6:cout<<"请输入你要修改的工作时间(小时数)：";
                     cin>>i;m.setTime(0,i,0,0,0,0);t.setTime(0,i,0,0,0,0);sale.setTime(0,i,0,0,0,0);sm.setTime(0,i,0,0,0,0);
                     vecm=Managers->Edit(m,0,1);vect=Technicians->Edit(t,0,1);vecs=SalesMans->Edit(sale,0,1);vecsm=SalesManagers->Edit(sm,0,1);
                     if(vecm==nullptr&&vect==nullptr&&vecs==nullptr&&vecsm==nullptr){cout<<"无此员工！";return;}
+                    break;
                 case 7:cout<<"请输入你要修改的带薪休假时间(小时数)：";
                     cin>>i;m.setTime(0,0,0,i,0,0);t.setTime(0,0,0,i,0,0);sale.setTime(0,0,0,i,0,0);sm.setTime(0,0,0,i,0,0);
                     vecm=Managers->Edit(m,0,2);vect=Technicians->Edit(t,0,2);vecs=SalesMans->Edit(sale,0,2);vecsm=SalesManagers->Edit(sm,0,2);
                     if(vecm==nullptr&&vect==nullptr&&vecs==nullptr&&vecsm==nullptr){cout<<"无此员工！";return;}
+                    break;
                 case 8:cout<<"请输入你要修改的病假时间(小时数)：";
                     cin>>i;m.setTime(0,0,0,0,0,i);t.setTime(0,0,0,0,0,i);sale.setTime(0,0,0,0,0,i);sm.setTime(0,0,0,0,0,i);
                     vecm=Managers->Edit(m,0,2);vect=Technicians->Edit(t,0,2);vecs=SalesMans->Edit(sale,0,2);vecsm=SalesManagers->Edit(sm,0,2);
                     if(vecm==nullptr&&vect==nullptr&&vecs==nullptr&&vecsm==nullptr){cout<<"无此员工！";return;}
+                    break;
                 case 9: return;
                 default:cout<<"输入错误！"<<endl;return;
             }
@@ -474,7 +464,37 @@ void Delete(){
     cout<<"请输入你要删除信息的员工编号：";cin>>i;
     Manager m;Technician t;SalesMan sale;SalesManager sm;
     m.setnum(i);t.setnum(i);sale.setnum(i);sm.setnum(i);
-    i=Managers->Delete(m)+Technicians->Delete(t)+SalesMans->Delete(sale)+SalesManagers->Delete(sm);
+    i=Managers->Delete(m);
+    i=i+Technicians->Delete(t)+SalesMans->Delete(sale)+SalesManagers->Delete(sm);
     if(i==0){cout<<"无此用户！";}
     if(i==1){cout<<"删除成功！";}
+}
+void Write(){
+    cout<<"请输入要写入的文件名（如果已存在会覆盖）,输入0为默认（1.dat）"<<endl;
+    string s;
+    cin>>s;
+    if(s=="0"){s="1.dat";}
+    File f;
+    f.writeFile_Managers<LinkedList<Node<Manager>,Manager>,Manager>(s);
+    f.writeFile_Technicians<LinkedList<Node<Technician>,Technician>,Technician>(s);
+    f.writeFile_SalesMans<LinkedList<Node<SalesMan>,SalesMan>,SalesMan>(s);
+    f.writeFile_SalesManagers<LinkedList<Node<SalesManager>,SalesManager>,SalesManager>(s);
+}
+void Read(){
+    cout<<"请输入要读取的文件名,输入0为默认（1.dat）"<<endl;
+    string s;
+    cin>>s;
+    if(s=="0"){s="1.dat";}
+    File f;
+    ifstream infile;
+    infile.open(s,ios::in);
+    try {
+        f.readFile_Managers<LinkedList<Node<Manager>,Manager>,Manager>(s,infile);
+    }catch(string e){
+        cout<<e<<endl;return;
+    }
+    f.readFile_Technicians<LinkedList<Node<Technician>,Technician>,Technician>(s,infile);
+    f.readFile_SalesMans<LinkedList<Node<SalesMan>,SalesMan>,SalesMan>(s,infile);
+    f.readFile_SalesManagers<LinkedList<Node<SalesManager>,SalesManager>,SalesManager>(s,infile);
+    infile.close();
 }

@@ -8,11 +8,11 @@
 
 template<class T>
 bool Manager::operator>(T T1) {
-    //èŽ·å–selectå‚æ•°
-    //TODO::æ¯”è¾ƒå‰è®°å¾—setselect
+    //»ñÈ¡select²ÎÊý
+    //TODO::±È½ÏÇ°¼ÇµÃsetselect
     int i=T1.getselect();
     int j=T1.getSelect();
-    //æ ¹æ®å‚æ•°æž„å»ºå¯¹åº”å…³ç³»
+    //¸ù¾Ý²ÎÊý¹¹½¨¶ÔÓ¦¹ØÏµ
     if(i>0){
         switch(i){
             case 1: return this->num>T1.getnum();
@@ -27,13 +27,13 @@ bool Manager::operator>(T T1) {
             }
         }
     }
-    //é»˜è®¤æƒ…å†µ
+    //Ä¬ÈÏÇé¿ö
     return false;
 }
 
 template<class T>
 bool Manager::operator<(T T1) {
-    //ä¸Žä¸Šä¸€ä¸ªç›¸åŒï¼Œç¬¦å·ç›¸å
+    //ÓëÉÏÒ»¸öÏàÍ¬£¬·ûºÅÏà·´
     int i=T1.getselect();
     int j=T1.getSelect();
     if(i>0){
@@ -50,13 +50,13 @@ bool Manager::operator<(T T1) {
             }
         }
     }
-    //é»˜è®¤æƒ…å†µ
+    //Ä¬ÈÏÇé¿ö
     return false;
 }
 
 template<class T>
 bool Manager::operator==(T T1) {
-    //ä¸Žä¸Šä¸€ä¸ªç›¸åŒï¼Œåˆ¤æ–­ç›¸ç­‰
+    //ÓëÉÏÒ»¸öÏàÍ¬£¬ÅÐ¶ÏÏàµÈ
     int i=T1.getselect();
     int j=T1.getSelect();
     if(i>0){
@@ -76,7 +76,7 @@ bool Manager::operator==(T T1) {
             }
         }
     }
-    //é»˜è®¤æƒ…å†µ
+    //Ä¬ÈÏÇé¿ö
     return true;
 }
 
@@ -86,10 +86,10 @@ bool Manager::operator==(T T1) {
 
 template<class T>
 bool Technician::operator>(T T1) {
-    //èŽ·å–selectå‚æ•°
+    //»ñÈ¡select²ÎÊý
     int i=T1.getselect();
     int j=T1.getSelect();
-    //æ ¹æ®å‚æ•°æž„å»ºå¯¹åº”å…³ç³»
+    //¸ù¾Ý²ÎÊý¹¹½¨¶ÔÓ¦¹ØÏµ
     if(i>0){
         switch(i){
             case 1: return this->num>T1.getnum();
@@ -104,13 +104,13 @@ bool Technician::operator>(T T1) {
             }
         }
     }
-    //é»˜è®¤æƒ…å†µ
+    //Ä¬ÈÏÇé¿ö
     return false;
 }
 
 template<class T>
 bool Technician::operator<(T T1) {
-    //ä¸Žä¸Šä¸€ä¸ªç›¸åŒï¼Œç¬¦å·ç›¸å
+    //ÓëÉÏÒ»¸öÏàÍ¬£¬·ûºÅÏà·´
     int i=T1.getselect();
     int j=T1.getSelect();
     if(i>0){
@@ -127,13 +127,13 @@ bool Technician::operator<(T T1) {
             }
         }
     }
-    //é»˜è®¤æƒ…å†µ
+    //Ä¬ÈÏÇé¿ö
     return false;
 }
 
 template<class T>
 bool Technician::operator==(T T1) {
-    //ä¸Žä¸Šä¸€ä¸ªç›¸åŒï¼Œåˆ¤æ–­ç›¸ç­‰
+    //ÓëÉÏÒ»¸öÏàÍ¬£¬ÅÐ¶ÏÏàµÈ
     int i=T1.getselect();
     int j=T1.getSelect();
     if(i>0){
@@ -153,7 +153,7 @@ bool Technician::operator==(T T1) {
             }
         }
     }
-    //é»˜è®¤æƒ…å†µ
+    //Ä¬ÈÏÇé¿ö
     return false;
 }
 
@@ -162,10 +162,10 @@ bool Technician::operator==(T T1) {
 
 template<class T>
 bool SalesMan::operator>(T T1) {
-    //èŽ·å–selectå‚æ•°
+    //»ñÈ¡select²ÎÊý
     int i=T1.getselect();
     int j=T1.getSelect();
-    //æ ¹æ®å‚æ•°æž„å»ºå¯¹åº”å…³ç³»
+    //¸ù¾Ý²ÎÊý¹¹½¨¶ÔÓ¦¹ØÏµ
     if(i>0){
         switch(i){
             case 1: return this->num>T1.getnum();
@@ -180,13 +180,13 @@ bool SalesMan::operator>(T T1) {
             }
         }
     }
-    //é»˜è®¤æƒ…å†µ
+    //Ä¬ÈÏÇé¿ö
     return false;
 }
 
 template<class T>
 bool SalesMan::operator<(T T1) {
-    //ä¸Žä¸Šä¸€ä¸ªç›¸åŒï¼Œç¬¦å·ç›¸å
+    //ÓëÉÏÒ»¸öÏàÍ¬£¬·ûºÅÏà·´
     int i=T1.getselect();
     int j=T1.getSelect();
     if(i>0){
@@ -203,13 +203,13 @@ bool SalesMan::operator<(T T1) {
             }
         }
     }
-    //é»˜è®¤æƒ…å†µ
+    //Ä¬ÈÏÇé¿ö
     return false;
 }
 
 template<class T>
 bool SalesMan::operator==(T T1) {
-    //ä¸Žä¸Šä¸€ä¸ªç›¸åŒï¼Œåˆ¤æ–­ç›¸ç­‰
+    //ÓëÉÏÒ»¸öÏàÍ¬£¬ÅÐ¶ÏÏàµÈ
     int i=T1.getselect();
     int j=T1.getSelect();
     if(i>0){
@@ -229,7 +229,7 @@ bool SalesMan::operator==(T T1) {
             }
         }
     }
-    //é»˜è®¤æƒ…å†µ
+    //Ä¬ÈÏÇé¿ö
     return false;
 }
 
@@ -238,10 +238,10 @@ bool SalesMan::operator==(T T1) {
 
 template<class T>
 bool SalesManager::operator>(T T1) {
-    //èŽ·å–selectå‚æ•°
+    //»ñÈ¡select²ÎÊý
     int i=T1.getselect();
     int j=T1.getSelect();
-    //æ ¹æ®å‚æ•°æž„å»ºå¯¹åº”å…³ç³»
+    //¸ù¾Ý²ÎÊý¹¹½¨¶ÔÓ¦¹ØÏµ
     if(i>0){
         switch(i){
             case 1: return this->num>T1.getnum();
@@ -256,13 +256,13 @@ bool SalesManager::operator>(T T1) {
             }
         }
     }
-    //é»˜è®¤æƒ…å†µ
+    //Ä¬ÈÏÇé¿ö
     return false;
 }
 
 template<class T>
 bool SalesManager::operator<(T T1) {
-    //ä¸Žä¸Šä¸€ä¸ªç›¸åŒï¼Œç¬¦å·ç›¸å
+    //ÓëÉÏÒ»¸öÏàÍ¬£¬·ûºÅÏà·´
     int i=T1.getselect();
     int j=T1.getSelect();
     if(i>0){
@@ -279,13 +279,13 @@ bool SalesManager::operator<(T T1) {
             }
         }
     }
-    //é»˜è®¤æƒ…å†µ
+    //Ä¬ÈÏÇé¿ö
     return false;
 }
 
 template<class T>
 bool SalesManager::operator==(T T1) {
-    //ä¸Žä¸Šä¸€ä¸ªç›¸åŒï¼Œåˆ¤æ–­ç›¸ç­‰
+    //ÓëÉÏÒ»¸öÏàÍ¬£¬ÅÐ¶ÏÏàµÈ
     int i=T1.getselect();
     int j=T1.getSelect();
     if(i>0){
@@ -305,7 +305,7 @@ bool SalesManager::operator==(T T1) {
             }
         }
     }
-    //é»˜è®¤æƒ…å†µ
+    //Ä¬ÈÏÇé¿ö
     return false;
 }
 
