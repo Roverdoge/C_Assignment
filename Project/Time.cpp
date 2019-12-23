@@ -26,12 +26,12 @@ Time::Time(double work_day, double work_hour, double holiday_day, double holiday
 }
 void Time::setTime(double work_day, double work_hour, double holiday_day, double holiday_hour, double notwork_day,
                double notwork_hour) {
-    if(work_day>0){this->work_day=work_day;}else{this->work_day=0;}
-    if(work_hour>0){this->work_hour=work_hour;}else{this->work_hour=0;}
-    if(holiday_day>0){this->holiday_day=holiday_day;}else{this->holiday_day=0;}
-    if(holiday_hour>0){this->holiday_hour=holiday_hour;}else{this->holiday_hour=0;}
-    if(notwork_day>0){this->notwork_day=notwork_day;}else{this->notwork_day=0;}
-    if(notwork_hour>0){this->notwork_hour=notwork_hour;}else{this->notwork_hour=0;}
+    if(work_day>0){this->work_day=work_day;}
+    if(work_hour>0){this->work_hour=work_hour;}
+    if(holiday_day>0){this->holiday_day=holiday_day;}
+    if(holiday_hour>0){this->holiday_hour=holiday_hour;}
+    if(notwork_day>0){this->notwork_day=notwork_day;}
+    if(notwork_hour>0){this->notwork_hour=notwork_hour;}
 }
 
 double Time::getDay(int flag) {switch(flag){case 1:return this->work_day;case 2:return this->holiday_day;case 3: return this->notwork_day;default: return 0;}}

@@ -104,7 +104,6 @@ void Add(){
             getchar();
             getline(std::cin,data);
             data=data+' ';
-            data=data+' ';
             for(index=0,pos=0,flag=0,c=&data[0];*c!='\0';c++,index++){
                 if(*c==' '){
                     flag++;
@@ -193,7 +192,7 @@ void Search(){
     int i,i1,a;
     string s;
     cout<<"本系统支持根据单一确定条件的查询和单一条件的范围查询！请选择你要的查询方式"<<endl;
-    cout<<"确定查询请输入1，范围查询请输入2：";
+    cout<<"确定查询请输入1，范围查询请输入2，查询各职业人数请输入3：";
     cin>>a;
     Manager m;Technician t;SalesMan sale;SalesManager sm;
     Manager m1;Technician t1;SalesMan sale1;SalesManager sm1;
@@ -302,8 +301,7 @@ void Search(){
                 break;
             case 3:cout<<"请输入你要查询的员工工作时间（小时）范围（不包括）,以空格分隔：";
                 cin>>i>>i1;
-                m.setnum(i);m1.setnum(i1);t.setnum(i);t1.setnum(i1);sale.setnum(i);sale1.setnum(i1);sm.setnum(i);sm.setnum(i1);
-                //TODO::set sth..
+                m.setTime(0,i,0,0,0,0);m1.setTime(0,i1,0,0,0,0);t.setTime(0,i,0,0,0,0);t1.setTime(0,i1,0,0,0,0);sale.setTime(0,i,0,0,0,0);sale1.setTime(0,i1,0,0,0,0);sm.setTime(0,i,0,0,0,0);sm.setTime(0,i1,0,0,0,0);
                 vecm=Managers->RangeSearch(m,m1,0,1);vect=Technicians->RangeSearch(t,t1,0,1);vecs=SalesMans->RangeSearch(sale,sale1,0,1);vecsm=SalesManagers->RangeSearch(sm,sm1,0,1);
                 if(vecm==nullptr&&vect==nullptr&&vecs==nullptr&&vecsm==nullptr){cout<<"无此类员工！";break;}
                 if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){cout<<itm->data;}}
@@ -313,6 +311,7 @@ void Search(){
                 break;
             case 4:cout<<"请输入你要查询的员工带薪休假时间（小时）范围（不包括）,以空格分隔：";
                 cin>>i>>i1;
+                m.setTime(0,0,0,i,0,0);m1.setTime(0,0,0,i1,0,0);t.setTime(0,0,0,i,0,0);t1.setTime(0,0,0,i1,0,0);sale.setTime(0,0,0,i,0,0);sale1.setTime(0,0,0,i1,0,0);sm.setTime(0,0,0,i,0,0);sm.setTime(0,0,0,i1,0,0);
                 vecm=Managers->RangeSearch(m,m1,0,2);vect=Technicians->RangeSearch(t,t1,0,2);vecs=SalesMans->RangeSearch(sale,sale1,0,2);vecsm=SalesManagers->RangeSearch(sm,sm1,0,2);
                 if(vecm==nullptr&&vect==nullptr&&vecs==nullptr&&vecsm==nullptr){cout<<"无此类员工！";break;}
                 if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){cout<<itm->data;}}
@@ -321,7 +320,7 @@ void Search(){
                 if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){cout<<itsm->data;}}
                 break;
             case 5:cout<<"请输入你要查询的员工病假时间（小时）范围（不包括）,以空格分隔：";
-                cin>>i>>i1;
+                cin>>i>>i1;m.setTime(0,0,0,0,0,i);m1.setTime(0,0,0,0,0,i1);t.setTime(0,0,0,0,0,i);t1.setTime(0,0,0,0,0,i1);sale.setTime(0,0,0,0,0,i);sale1.setTime(0,0,0,0,0,i1);sm.setTime(0,0,0,0,0,i);sm.setTime(0,0,0,0,0,i1);
                 vecm=Managers->RangeSearch(m,m1,0,4);vect=Technicians->RangeSearch(t,t1,0,4);vecs=SalesMans->RangeSearch(sale,sale1,0,4);vecsm=SalesManagers->RangeSearch(sm,sm1,0,4);
                 if(vecm==nullptr&&vect==nullptr&&vecs==nullptr&&vecsm==nullptr){cout<<"无此类员工！";break;}
                 if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){cout<<itm->data;}}
@@ -330,6 +329,17 @@ void Search(){
                 if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){cout<<itsm->data;}}break;
             case 6:return;
             default:cout<<"输入错误！"<<endl;break;
+        }
+    }else if(a==3){
+        cout<<"请输入你要查询的职业，经理请输入1，技术人员请输入2，销售人员请输入3，销售经理请输入4，退出请输入5：";
+        cin>>a;
+        switch(a){
+            case 1: cout<<"此职业总人数为："<<Managers->getlength()<<endl;break;
+            case 2: cout<<"此职业总人数为："<<Technicians->getlength()<<endl;break;
+            case 3: cout<<"此职业总人数为："<<SalesMans->getlength()<<endl;break;
+            case 4: cout<<"此职业总人数为："<<SalesManagers->getlength()<<endl;break;
+            case 5:return;
+            default:cout<<"输入错误！";return;
         }
     }else{cout<<"输入错误！请重新选择";}
 }
@@ -341,7 +351,7 @@ void Edit(){
     string s;
     cout<<"本系统暂时仅支持根据单一确定条件的修改(因为作者肝莫得了)！"<<endl;
     Manager m;Technician t;SalesMan sale;SalesManager sm;
-    Manager m1;Technician t1;SalesMan sale1;SalesManager sm1;
+    //Manager m1;Technician t1;SalesMan sale1;SalesManager sm1;
     vector<Node<Manager>* > *vecm;vector<Node<Technician>* > *vect;vector<Node<SalesMan>* > *vecs;vector<Node<SalesManager>* > *vecsm;
     vector<Node<Manager>* >::iterator itm;vector<Node<Technician>* >::iterator itt;vector<Node<SalesMan>* >::iterator its;vector<Node<SalesManager>* >::iterator itsm;
         while(true){

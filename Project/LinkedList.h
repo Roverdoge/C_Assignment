@@ -31,6 +31,7 @@ public:
     vector<T1*>* Edit(T2,int,int);
     void Sort();
     Node<T2>* gethead(){return this->head;}
+    int getlength(){return this->length;}
     //vector's sort rule
 
 private:

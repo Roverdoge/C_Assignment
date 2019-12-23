@@ -9,7 +9,6 @@
 template<class T>
 bool Manager::operator>(T T1) {
     //获取select参数
-    //TODO::比较前记得setselect
     int i=T1.getselect();
     int j=T1.getSelect();
     //根据参数构建对应关系
