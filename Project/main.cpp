@@ -208,68 +208,75 @@ void Search(){
                     cin>>i;m.setnum(i);t.setnum(i);sale.setnum(i);sm.setnum(i);
                     vecm=Managers->Search(m,1,0);vect=Technicians->Search(t,1,0);vecs=SalesMans->Search(sale,1,0);vecsm=SalesManagers->Search(sm,1,0);
                     if(vecm==nullptr&&vect==nullptr&&vecs==nullptr&&vecsm==nullptr){cout<<"无此员工！";break;}
-                    if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){cout<<itm->data;}}
-                    if(vect!=nullptr){for(itt=vect->begin();itt!=vect->end();itt++){cout<<itt->data;}}
-                    if(vecs!=nullptr){for(its=vecs->begin();its!=vecs->end();its++){cout<<its->data;}}
-                    if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){cout<<itsm->data;}}
+                    if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){itm->data.setSelect(31);itm->data.setselect(7);cout<<itm->data;}}
+                    if(vect!=nullptr){for(itt=vect->begin();itt!=vect->end();itt++){itt->data.setSelect(31);itt->data.setselect(7);cout<<itt->data;}}
+                    if(vecs!=nullptr){for(its=vecs->begin();its!=vecs->end();its++){its->data.setSelect(31);its->data.setselect(7);cout<<its->data;}}
+                    if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){itsm->data.setSelect(31);itsm->data.setselect(7);cout<<itsm->data;}}
                     break;
                 case 2:cout<<"请输入你要查询的员工姓名：";
                     cin>>s;m.setname(s);t.setname(s);sale.setname(s);sm.setname(s);
                     vecm=Managers->Search(m,2,0);vect=Technicians->Search(t,2,0);vecs=SalesMans->Search(sale,2,0);vecsm=SalesManagers->Search(sm,2,0);
                     if(vecm==nullptr&&vect==nullptr&&vecs==nullptr&&vecsm==nullptr){cout<<"无此员工！";break;}
-                    if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){cout<<itm->data;}}
-                    if(vect!=nullptr){for(itt=vect->begin();itt!=vect->end();itt++){cout<<itt->data;}}
-                    if(vecs!=nullptr){for(its=vecs->begin();its!=vecs->end();its++){cout<<its->data;}}
-                    if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){cout<<itsm->data;}}
+                    if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){itm->data.setSelect(31);itm->data.setselect(7);cout<<itm->data;}}
+                    if(vect!=nullptr){for(itt=vect->begin();itt!=vect->end();itt++){itt->data.setSelect(31);itt->data.setselect(7);cout<<itt->data;}}
+                    if(vecs!=nullptr){for(its=vecs->begin();its!=vecs->end();its++){its->data.setSelect(31);its->data.setselect(7);cout<<its->data;}}
+                    if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){itsm->data.setSelect(31);itsm->data.setselect(7);cout<<itsm->data;}}
+                    break;
                 case 3:cout<<"请输入你要查询的员工性别(男为1，女为-1)：";
                     cin>>i;if(i!=1&&i!=-1){cout<<"输入错误!";break;}
                     m.setsex(i);t.setsex(i);sale.setsex(i);sm.setsex(i);
                     vecm=Managers->Search(m,4,0);vect=Technicians->Search(t,4,0);vecs=SalesMans->Search(sale,4,0);vecsm=SalesManagers->Search(sm,4,0);
                     if(vecm==nullptr&&vect==nullptr&&vecs==nullptr&&vecsm==nullptr){cout<<"无此员工！";break;}
-                    if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){cout<<itm->data;}}
-                    if(vect!=nullptr){for(itt=vect->begin();itt!=vect->end();itt++){cout<<itt->data;}}
-                    if(vecs!=nullptr){for(its=vecs->begin();its!=vecs->end();its++){cout<<its->data;}}
-                    if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){cout<<itsm->data;}}
+                    if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){itm->data.setSelect(31);itm->data.setselect(7);cout<<itm->data;}}
+                    if(vect!=nullptr){for(itt=vect->begin();itt!=vect->end();itt++){itt->data.setSelect(31);itt->data.setselect(7);cout<<itt->data;}}
+                    if(vecs!=nullptr){for(its=vecs->begin();its!=vecs->end();its++){its->data.setSelect(31);its->data.setselect(7);cout<<its->data;}}
+                    if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){itsm->data.setSelect(31);itsm->data.setselect(7);cout<<itsm->data;}}
+                    break;
                 case 4:cout<<"请输入你要查询的部门名称：";
                     cin>>s;m.setsection(s);t.setsection(s);sale.setsection(s);sm.setsection(s);
                     vecm=Managers->Search(m,8,0);vect=Technicians->Search(t,8,0);vecs=SalesMans->Search(sale,8,0);vecsm=SalesManagers->Search(sm,8,0);
                     if(vecm==nullptr&&vect==nullptr&&vecs==nullptr&&vecsm==nullptr){cout<<"无此员工！";break;}
-                    if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){cout<<itm->data;}}
-                    if(vect!=nullptr){for(itt=vect->begin();itt!=vect->end();itt++){cout<<itt->data;}}
-                    if(vecs!=nullptr){for(its=vecs->begin();its!=vecs->end();its++){cout<<its->data;}}
-                    if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){cout<<itsm->data;}}
+                    if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){itm->data.setSelect(31);itm->data.setselect(7);cout<<itm->data;}}
+                    if(vect!=nullptr){for(itt=vect->begin();itt!=vect->end();itt++){itt->data.setSelect(31);itt->data.setselect(7);cout<<itt->data;}}
+                    if(vecs!=nullptr){for(its=vecs->begin();its!=vecs->end();its++){its->data.setSelect(31);its->data.setselect(7);cout<<its->data;}}
+                    if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){itsm->data.setSelect(31);itsm->data.setselect(7);cout<<itsm->data;}}
+                    break;
                 case 5:cout<<"请输入你要查询的员工级别：";
                     cin>>i;m.setlevel(i);t.setlevel(i);sale.setlevel(i);sm.setlevel(i);
                     vecm=Managers->Search(m,16,0);vect=Technicians->Search(t,16,0);vecs=SalesMans->Search(sale,16,0);vecsm=SalesManagers->Search(sm,16,0);
                     if(vecm==nullptr&&vect==nullptr&&vecs==nullptr&&vecsm==nullptr){cout<<"无此员工！";break;}
-                    if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){cout<<itm->data;}}
-                    if(vect!=nullptr){for(itt=vect->begin();itt!=vect->end();itt++){cout<<itt->data;}}
-                    if(vecs!=nullptr){for(its=vecs->begin();its!=vecs->end();its++){cout<<its->data;}}
-                    if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){cout<<itsm->data;}}
+                    if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){itm->data.setSelect(31);itm->data.setselect(7);cout<<itm->data;}}
+                    if(vect!=nullptr){for(itt=vect->begin();itt!=vect->end();itt++){itt->data.setSelect(31);itt->data.setselect(7);cout<<itt->data;}}
+                    if(vecs!=nullptr){for(its=vecs->begin();its!=vecs->end();its++){its->data.setSelect(31);its->data.setselect(7);cout<<its->data;}}
+                    if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){itsm->data.setSelect(31);itsm->data.setselect(7);cout<<itsm->data;}}
+                    break;
                 case 6:cout<<"请输入你要查询的工作时间(小时数)：";
                     cin>>i;m.setTime(0,i,0,0,0,0);t.setTime(0,i,0,0,0,0);sale.setTime(0,i,0,0,0,0);sm.setTime(0,i,0,0,0,0);
                     vecm=Managers->Search(m,0,1);vect=Technicians->Search(t,0,1);vecs=SalesMans->Search(sale,0,1);vecsm=SalesManagers->Search(sm,0,1);
                     if(vecm==nullptr&&vect==nullptr&&vecs==nullptr&&vecsm==nullptr){cout<<"无此员工！";break;}
-                    if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){cout<<itm->data;}}
-                    if(vect!=nullptr){for(itt=vect->begin();itt!=vect->end();itt++){cout<<itt->data;}}
-                    if(vecs!=nullptr){for(its=vecs->begin();its!=vecs->end();its++){cout<<its->data;}}
-                    if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){cout<<itsm->data;}}
+                    if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){itm->data.setSelect(31);itm->data.setselect(7);cout<<itm->data;}}
+                    if(vect!=nullptr){for(itt=vect->begin();itt!=vect->end();itt++){itt->data.setSelect(31);itt->data.setselect(7);cout<<itt->data;}}
+                    if(vecs!=nullptr){for(its=vecs->begin();its!=vecs->end();its++){its->data.setSelect(31);its->data.setselect(7);cout<<its->data;}}
+                    if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){itsm->data.setSelect(31);itsm->data.setselect(7);cout<<itsm->data;}}
+                    break;
                 case 7:cout<<"请输入你要查询的带薪休假时间(小时数)：";
                     cin>>i;m.setTime(0,0,0,i,0,0);t.setTime(0,0,0,i,0,0);sale.setTime(0,0,0,i,0,0);sm.setTime(0,0,0,i,0,0);
                     vecm=Managers->Search(m,0,2);vect=Technicians->Search(t,0,2);vecs=SalesMans->Search(sale,0,2);vecsm=SalesManagers->Search(sm,0,2);
                     if(vecm==nullptr&&vect==nullptr&&vecs==nullptr&&vecsm==nullptr){cout<<"无此员工！";break;}
-                    if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){cout<<itm->data;}}
-                    if(vect!=nullptr){for(itt=vect->begin();itt!=vect->end();itt++){cout<<itt->data;}}
-                    if(vecs!=nullptr){for(its=vecs->begin();its!=vecs->end();its++){cout<<its->data;}}
-                    if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){cout<<itsm->data;}}
+                    if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){itm->data.setSelect(31);itm->data.setselect(7);cout<<itm->data;}}
+                    if(vect!=nullptr){for(itt=vect->begin();itt!=vect->end();itt++){itt->data.setSelect(31);itt->data.setselect(7);cout<<itt->data;}}
+                    if(vecs!=nullptr){for(its=vecs->begin();its!=vecs->end();its++){its->data.setSelect(31);its->data.setselect(7);cout<<its->data;}}
+                    if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){itsm->data.setSelect(31);itsm->data.setselect(7);cout<<itsm->data;}}
+                    break;
                 case 8:cout<<"请输入你要查询的病假时间(小时数)：";
                     cin>>i;m.setTime(0,0,0,0,0,i);t.setTime(0,0,0,0,0,i);sale.setTime(0,0,0,0,0,i);sm.setTime(0,0,0,0,0,i);
                     vecm=Managers->Search(m,0,2);vect=Technicians->Search(t,0,2);vecs=SalesMans->Search(sale,0,2);vecsm=SalesManagers->Search(sm,0,2);
                     if(vecm==nullptr&&vect==nullptr&&vecs==nullptr&&vecsm==nullptr){cout<<"无此员工！";break;}
-                    if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){cout<<itm->data;}}
-                    if(vect!=nullptr){for(itt=vect->begin();itt!=vect->end();itt++){cout<<itt->data;}}
-                    if(vecs!=nullptr){for(its=vecs->begin();its!=vecs->end();its++){cout<<its->data;}}
-                    if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){cout<<itsm->data;}}
+                    if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){itm->data.setSelect(31);itm->data.setselect(7);cout<<itm->data;}}
+                    if(vect!=nullptr){for(itt=vect->begin();itt!=vect->end();itt++){itt->data.setSelect(31);itt->data.setselect(7);cout<<itt->data;}}
+                    if(vecs!=nullptr){for(its=vecs->begin();its!=vecs->end();its++){its->data.setSelect(31);its->data.setselect(7);cout<<its->data;}}
+                    if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){itsm->data.setSelect(31);itsm->data.setselect(7);cout<<itsm->data;}}
+                    break;
                 case 9: return;     
                 default:cout<<"输入错误！"<<endl;break;
             }
@@ -284,49 +291,49 @@ void Search(){
                 m.setnum(i);m1.setnum(i1);t.setnum(i);t1.setnum(i1);sale.setnum(i);sale1.setnum(i1);sm.setnum(i);sm.setnum(i1);
                 vecm=Managers->RangeSearch(m,m1,1,0);vect=Technicians->RangeSearch(t,t1,1,0);vecs=SalesMans->RangeSearch(sale,sale1,1,0);vecsm=SalesManagers->RangeSearch(sm,sm1,1,0);
                 if(vecm==nullptr&&vect==nullptr&&vecs==nullptr&&vecsm==nullptr){cout<<"无此类员工！";break;}
-                if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){cout<<itm->data;}}
-                if(vect!=nullptr){for(itt=vect->begin();itt!=vect->end();itt++){cout<<itt->data;}}
-                if(vecs!=nullptr){for(its=vecs->begin();its!=vecs->end();its++){cout<<its->data;}}
-                if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){cout<<itsm->data;}}
+                if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){itm->data.setSelect(31);itm->data.setselect(7);cout<<itm->data;}}
+                if(vect!=nullptr){for(itt=vect->begin();itt!=vect->end();itt++){itt->data.setSelect(31);itt->data.setselect(7);cout<<itt->data;}}
+                if(vecs!=nullptr){for(its=vecs->begin();its!=vecs->end();its++){its->data.setSelect(31);its->data.setselect(7);cout<<its->data;}}
+                if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){itsm->data.setSelect(31);itsm->data.setselect(7);cout<<itsm->data;}}
                 break;
             case 2:cout<<"请输入你要查询的员工级别范围（不包括）,以空格分隔：";
                 cin>>i>>i1;
                 m.setlevel(i);m1.setlevel(i1);t.setlevel(i);t1.setlevel(i1);sale.setlevel(i);sale1.setlevel(i1);sm.setlevel(i);sm.setlevel(i1);
                 vecm=Managers->RangeSearch(m,m1,16,0);vect=Technicians->RangeSearch(t,t1,16,0);vecs=SalesMans->RangeSearch(sale,sale1,16,0);vecsm=SalesManagers->RangeSearch(sm,sm1,16,0);
                 if(vecm==nullptr&&vect==nullptr&&vecs==nullptr&&vecsm==nullptr){cout<<"无此类员工！";break;}
-                if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){cout<<itm->data;}}
-                if(vect!=nullptr){for(itt=vect->begin();itt!=vect->end();itt++){cout<<itt->data;}}
-                if(vecs!=nullptr){for(its=vecs->begin();its!=vecs->end();its++){cout<<its->data;}}
-                if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){cout<<itsm->data;}}
+                if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){itm->data.setSelect(31);itm->data.setselect(7);cout<<itm->data;}}
+                if(vect!=nullptr){for(itt=vect->begin();itt!=vect->end();itt++){itt->data.setSelect(31);itt->data.setselect(7);cout<<itt->data;}}
+                if(vecs!=nullptr){for(its=vecs->begin();its!=vecs->end();its++){its->data.setSelect(31);its->data.setselect(7);cout<<its->data;}}
+                if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){itsm->data.setSelect(31);itsm->data.setselect(7);cout<<itsm->data;}}
                 break;
             case 3:cout<<"请输入你要查询的员工工作时间（小时）范围（不包括）,以空格分隔：";
                 cin>>i>>i1;
                 m.setTime(0,i,0,0,0,0);m1.setTime(0,i1,0,0,0,0);t.setTime(0,i,0,0,0,0);t1.setTime(0,i1,0,0,0,0);sale.setTime(0,i,0,0,0,0);sale1.setTime(0,i1,0,0,0,0);sm.setTime(0,i,0,0,0,0);sm.setTime(0,i1,0,0,0,0);
                 vecm=Managers->RangeSearch(m,m1,0,1);vect=Technicians->RangeSearch(t,t1,0,1);vecs=SalesMans->RangeSearch(sale,sale1,0,1);vecsm=SalesManagers->RangeSearch(sm,sm1,0,1);
                 if(vecm==nullptr&&vect==nullptr&&vecs==nullptr&&vecsm==nullptr){cout<<"无此类员工！";break;}
-                if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){cout<<itm->data;}}
-                if(vect!=nullptr){for(itt=vect->begin();itt!=vect->end();itt++){cout<<itt->data;}}
-                if(vecs!=nullptr){for(its=vecs->begin();its!=vecs->end();its++){cout<<its->data;}}
-                if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){cout<<itsm->data;}}
+                if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){itm->data.setSelect(31);itm->data.setselect(7);cout<<itm->data;}}
+                if(vect!=nullptr){for(itt=vect->begin();itt!=vect->end();itt++){itt->data.setSelect(31);itt->data.setselect(7);cout<<itt->data;}}
+                if(vecs!=nullptr){for(its=vecs->begin();its!=vecs->end();its++){its->data.setSelect(31);its->data.setselect(7);cout<<its->data;}}
+                if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){itsm->data.setSelect(31);itsm->data.setselect(7);cout<<itsm->data;}}
                 break;
             case 4:cout<<"请输入你要查询的员工带薪休假时间（小时）范围（不包括）,以空格分隔：";
                 cin>>i>>i1;
                 m.setTime(0,0,0,i,0,0);m1.setTime(0,0,0,i1,0,0);t.setTime(0,0,0,i,0,0);t1.setTime(0,0,0,i1,0,0);sale.setTime(0,0,0,i,0,0);sale1.setTime(0,0,0,i1,0,0);sm.setTime(0,0,0,i,0,0);sm.setTime(0,0,0,i1,0,0);
                 vecm=Managers->RangeSearch(m,m1,0,2);vect=Technicians->RangeSearch(t,t1,0,2);vecs=SalesMans->RangeSearch(sale,sale1,0,2);vecsm=SalesManagers->RangeSearch(sm,sm1,0,2);
                 if(vecm==nullptr&&vect==nullptr&&vecs==nullptr&&vecsm==nullptr){cout<<"无此类员工！";break;}
-                if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){cout<<itm->data;}}
-                if(vect!=nullptr){for(itt=vect->begin();itt!=vect->end();itt++){cout<<itt->data;}}
-                if(vecs!=nullptr){for(its=vecs->begin();its!=vecs->end();its++){cout<<its->data;}}
-                if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){cout<<itsm->data;}}
+                if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){itm->data.setSelect(31);itm->data.setselect(7);cout<<itm->data;}}
+                if(vect!=nullptr){for(itt=vect->begin();itt!=vect->end();itt++){itt->data.setSelect(31);itt->data.setselect(7);cout<<itt->data;}}
+                if(vecs!=nullptr){for(its=vecs->begin();its!=vecs->end();its++){its->data.setSelect(31);its->data.setselect(7);cout<<its->data;}}
+                if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){itsm->data.setSelect(31);itsm->data.setselect(7);cout<<itsm->data;}}
                 break;
             case 5:cout<<"请输入你要查询的员工病假时间（小时）范围（不包括）,以空格分隔：";
                 cin>>i>>i1;m.setTime(0,0,0,0,0,i);m1.setTime(0,0,0,0,0,i1);t.setTime(0,0,0,0,0,i);t1.setTime(0,0,0,0,0,i1);sale.setTime(0,0,0,0,0,i);sale1.setTime(0,0,0,0,0,i1);sm.setTime(0,0,0,0,0,i);sm.setTime(0,0,0,0,0,i1);
                 vecm=Managers->RangeSearch(m,m1,0,4);vect=Technicians->RangeSearch(t,t1,0,4);vecs=SalesMans->RangeSearch(sale,sale1,0,4);vecsm=SalesManagers->RangeSearch(sm,sm1,0,4);
                 if(vecm==nullptr&&vect==nullptr&&vecs==nullptr&&vecsm==nullptr){cout<<"无此类员工！";break;}
-                if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){cout<<itm->data;}}
-                if(vect!=nullptr){for(itt=vect->begin();itt!=vect->end();itt++){cout<<itt->data;}}
-                if(vecs!=nullptr){for(its=vecs->begin();its!=vecs->end();its++){cout<<its->data;}}
-                if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){cout<<itsm->data;}}break;
+                if(vecm!=nullptr){for(itm=vecm->begin();itm!=vecm->end();itm++){itm->data.setSelect(31);itm->data.setselect(7);cout<<itm->data;}}
+                if(vect!=nullptr){for(itt=vect->begin();itt!=vect->end();itt++){itt->data.setSelect(31);itt->data.setselect(7);cout<<itt->data;}}
+                if(vecs!=nullptr){for(its=vecs->begin();its!=vecs->end();its++){its->data.setSelect(31);its->data.setselect(7);cout<<its->data;}}
+                if(vecsm!=nullptr){for(itsm=vecsm->begin();itsm!=vecsm->end();itsm++){itsm->data.setSelect(31);itsm->data.setselect(7);cout<<itsm->data;}}break;
             case 6:return;
             default:cout<<"输入错误！"<<endl;break;
         }

@@ -69,9 +69,9 @@ bool Manager::operator==(T T1) {
     }else{
         if(j>0){
             switch(j){
-                case 1:return ((this->work_day)*4+this->work_hour)<(T1.getDay(1)*4+T1.getHour(1));
-                case 2:return ((this->holiday_day)*4+this->holiday_hour)<(T1.getDay(2)*4+T1.getHour(2));
-                case 4:return ((this->notwork_day)*4+this->notwork_hour)<(T1.getDay(3)*4+T1.getHour(3));
+                case 1:return ((this->work_day)*4+this->work_hour)==(T1.getDay(1)*4+T1.getHour(1));
+                case 2:return ((this->holiday_day)*4+this->holiday_hour)==(T1.getDay(2)*4+T1.getHour(2));
+                case 4:return ((this->notwork_day)*4+this->notwork_hour)==(T1.getDay(3)*4+T1.getHour(3));
             }
         }
     }
@@ -146,9 +146,9 @@ bool Technician::operator==(T T1) {
     }else{
         if(j>0){
             switch(j){
-                case 1:return ((this->work_day)*4+this->work_hour)<(T1.getDay(1)*4+T1.getHour(1));
-                case 2:return ((this->holiday_day)*4+this->holiday_hour)<(T1.getDay(2)*4+T1.getHour(2));
-                case 4:return ((this->notwork_day)*4+this->notwork_hour)<(T1.getDay(3)*4+T1.getHour(3));
+                case 1:return ((this->work_day)*4+this->work_hour)==(T1.getDay(1)*4+T1.getHour(1));
+                case 2:return ((this->holiday_day)*4+this->holiday_hour)==(T1.getDay(2)*4+T1.getHour(2));
+                case 4:return ((this->notwork_day)*4+this->notwork_hour)==(T1.getDay(3)*4+T1.getHour(3));
             }
         }
     }
@@ -222,9 +222,9 @@ bool SalesMan::operator==(T T1) {
     }else{
         if(j>0){
             switch(j){
-                case 1:return ((this->work_day)*4+this->work_hour)<(T1.getDay(1)*4+T1.getHour(1));
-                case 2:return ((this->holiday_day)*4+this->holiday_hour)<(T1.getDay(2)*4+T1.getHour(2));
-                case 4:return ((this->notwork_day)*4+this->notwork_hour)<(T1.getDay(3)*4+T1.getHour(3));
+                case 1:return ((this->work_day)*4+this->work_hour)==(T1.getDay(1)*4+T1.getHour(1));
+                case 2:return ((this->holiday_day)*4+this->holiday_hour)==(T1.getDay(2)*4+T1.getHour(2));
+                case 4:return ((this->notwork_day)*4+this->notwork_hour)==(T1.getDay(3)*4+T1.getHour(3));
             }
         }
     }
@@ -298,9 +298,9 @@ bool SalesManager::operator==(T T1) {
     }else{
         if(j>0){
             switch(j){
-                case 1:return ((this->work_day)*4+this->work_hour)<(T1.getDay(1)*4+T1.getHour(1));
-                case 2:return ((this->holiday_day)*4+this->holiday_hour)<(T1.getDay(2)*4+T1.getHour(2));
-                case 4:return ((this->notwork_day)*4+this->notwork_hour)<(T1.getDay(3)*4+T1.getHour(3));
+                case 1:return ((this->work_day)*4+this->work_hour)==(T1.getDay(1)*4+T1.getHour(1));
+                case 2:return ((this->holiday_day)*4+this->holiday_hour)==(T1.getDay(2)*4+T1.getHour(2));
+                case 4:return ((this->notwork_day)*4+this->notwork_hour)==(T1.getDay(3)*4+T1.getHour(3));
             }
         }
     }

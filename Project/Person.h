@@ -31,7 +31,7 @@ class Manager: public Staff,public Time{
         i=Manager.select2;
         if(((i>>1)&1)==1){output<<"工作了的日长为："<<Manager.work_day<<"；"<<"工作了的时长为："<<Manager.work_hour<<"；";}
         if(((i>>1)&1)==1){output<<"带薪休假的日长为："<<Manager.holiday_day<<"；"<<"带薪休假的时长为："<<Manager.holiday_hour<<"；";}
-        if(((i>>1)&1)==1){output<<"生病没有工作的日长为："<<Manager.work_day<<"；"<<"生病没有工作的时长为："<<Manager.work_hour<<"；";}
+        if(((i>>1)&1)==1){output<<"生病没有工作的日长为："<<Manager.notwork_day<<"；"<<"生病没有工作的时长为："<<Manager.notwork_hour<<"；";}
         output<<std::endl;
         return output;
     }
@@ -68,7 +68,7 @@ class Technician: public Staff,public Time{
         i=Technician.select2;
         if(((i>>1)&1)==1){output<<"工作了的日长为："<<Technician.work_day<<"；"<<"工作了的时长为："<<Technician.work_hour<<"；";}
         if(((i>>1)&1)==1){output<<"带薪休假的日长为："<<Technician.holiday_day<<"；"<<"带薪休假的时长为："<<Technician.holiday_hour<<"；";}
-        if(((i>>1)&1)==1){output<<"生病没有工作的日长为："<<Technician.work_day<<"；"<<"生病没有工作的时长为："<<Technician.work_hour<<"；";}
+        if(((i>>1)&1)==1){output<<"生病没有工作的日长为："<<Technician.notwork_day<<"；"<<"生病没有工作的时长为："<<Technician.notwork_hour<<"；";}
         output<<std::endl;
         return output;
     }
@@ -105,7 +105,7 @@ class SalesMan: public Staff, public Time{
         i=Salesman.select2;
         if(((i>>1)&1)==1){output<<"工作了的日长为："<<Salesman.work_day<<"；"<<"工作了的时长为："<<Salesman.work_hour<<"；";}
         if(((i>>1)&1)==1){output<<"带薪休假的日长为："<<Salesman.holiday_day<<"；"<<"带薪休假的时长为："<<Salesman.holiday_hour<<"；";}
-        if(((i>>1)&1)==1){output<<"生病没有工作的日长为："<<Salesman.work_day<<"；"<<"生病没有工作的时长为："<<Salesman.work_hour<<"；";}
+        if(((i>>1)&1)==1){output<<"生病没有工作的日长为："<<Salesman.notwork_day<<"；"<<"生病没有工作的时长为："<<Salesman.notwork_hour<<"；";}
         output<<std::endl;
         return output;
     }
@@ -142,7 +142,7 @@ class SalesManager: public Staff,public Time{
         i=SalesManager.select2;
         if(((i>>1)&1)==1){output<<"工作了的日长为："<<SalesManager.work_day<<"；"<<"工作了的时长为："<<SalesManager.work_hour<<"；";}
         if(((i>>1)&1)==1){output<<"带薪休假的日长为："<<SalesManager.holiday_day<<"；"<<"带薪休假的时长为："<<SalesManager.holiday_hour<<"；";}
-        if(((i>>1)&1)==1){output<<"生病没有工作的日长为："<<SalesManager.work_day<<"；"<<"生病没有工作的时长为："<<SalesManager.work_hour<<"；";}
+        if(((i>>1)&1)==1){output<<"生病没有工作的日长为："<<SalesManager.notwork_day<<"；"<<"生病没有工作的时长为："<<SalesManager.notwork_hour<<"；";}
         output<<std::endl;
         return output;
     }

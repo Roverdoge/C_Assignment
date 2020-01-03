@@ -9,8 +9,8 @@ void File::writeFile_Managers(string fname) {
     outfile.open(fname, ios::out);
     Node<T2>* temp;
     outfile << "Manager" << endl;
-    for(temp=Managers->gethead();temp->next!= nullptr;temp++){
-        outfile << temp->data.getnum() << " " << temp->data.getname() << " " << temp->data.getsex() << " " << temp->data.getsection() << " " << temp->data.getlevel() << " "<< temp->data.getselect() << " "\
+    for(temp=Managers->gethead();temp->next!= nullptr;temp=temp->next){
+        outfile << temp->data.getnum() << " " << temp->data.getname() << " " << temp->data.getsex() << " " << temp->data.getsection() << " " << temp->data.getlevel() << " "\
         <<temp->data.getDay(1)<<" "<<temp->data.getHour(1)<<" "<<temp->data.getDay(2)<<" "<<temp->data.getHour(2)<<" "<<temp->data.getDay(3)<<" "<<temp->data.getHour(3)<<" "<<std::endl;
     }
     outfile.close();
@@ -21,8 +21,8 @@ void File::writeFile_Technicians(string fname) {
     outfile.open(fname, ios::app);
     Node<T2>* temp;
     outfile << "Technician" << endl;
-    for(temp=Technicians->gethead();temp->next!= nullptr;temp++){
-        outfile << temp->data.getnum() << " " << temp->data.getname() << " " << temp->data.getsex() << " " << temp->data.getsection() << " " << temp->data.getlevel() << " "<< temp->data.getselect() << " "\
+    for(temp=Technicians->gethead();temp->next!= nullptr;temp=temp->next){
+        outfile << temp->data.getnum() << " " << temp->data.getname() << " " << temp->data.getsex() << " " << temp->data.getsection() << " " << temp->data.getlevel() << " "\
         <<temp->data.getDay(1)<<" "<<temp->data.getHour(1)<<" "<<temp->data.getDay(2)<<" "<<temp->data.getHour(2)<<" "<<temp->data.getDay(3)<<" "<<temp->data.getHour(3)<<" "<<std::endl;
     }
     outfile.close();
@@ -34,8 +34,8 @@ void File::writeFile_SalesMans(string fname) {
     outfile.open(fname, ios::app);
     Node<T2>* temp;
     outfile << "SalesMan" << endl;
-    for(temp=SalesMans->gethead();temp->next!= nullptr;temp++){
-        outfile << temp->data.getnum() << " " << temp->data.getname() << " " << temp->data.getsex() << " " << temp->data.getsection() << " " << temp->data.getlevel() << " "<< temp->data.getselect() << " "\
+    for(temp=SalesMans->gethead();temp->next!= nullptr;temp=temp->next){
+        outfile << temp->data.getnum() << " " << temp->data.getname() << " " << temp->data.getsex() << " " << temp->data.getsection() << " " << temp->data.getlevel() << " "\
         <<temp->data.getDay(1)<<" "<<temp->data.getHour(1)<<" "<<temp->data.getDay(2)<<" "<<temp->data.getHour(2)<<" "<<temp->data.getDay(3)<<" "<<temp->data.getHour(3)<<" "<<std::endl;
     }
     outfile.close();
@@ -46,8 +46,8 @@ void File::writeFile_SalesManagers(string fname) {
     outfile.open(fname, ios::app);
     Node<T2>* temp;
     outfile << "SalesManager" << endl;
-    for(temp=SalesManagers->gethead();temp->next!= nullptr;temp++){
-        outfile << temp->data.getnum() << " " << temp->data.getname() << " " << temp->data.getsex() << " " << temp->data.getsection() << " " << temp->data.getlevel() << " "<< temp->data.getselect() << " "\
+    for(temp=SalesManagers->gethead();temp->next!= nullptr;temp=temp->next){
+        outfile << temp->data.getnum() << " " << temp->data.getname() << " " << temp->data.getsex() << " " << temp->data.getsection() << " " << temp->data.getlevel() << " "\
         <<temp->data.getDay(1)<<" "<<temp->data.getHour(1)<<" "<<temp->data.getDay(2)<<" "<<temp->data.getHour(2)<<" "<<temp->data.getDay(3)<<" "<<temp->data.getHour(3)<<" "<<std::endl;
     }
     outfile.close();
@@ -58,15 +58,17 @@ void File::readFile_Managers(string fname,ifstream &infile) {
     char *c;
     int index, pos;
     int flag;
-    T2 t2;
-    string s;
+    T2 t2,t3;
+    string s,e;
     getline(infile, data);
-    if(data!="Manager"){throw "File error!";}
+    if(data!="Manager"){e="File error!";throw e;}
     while (true) {
         getline(infile, data);
         if (data == "Technician") {
             break;
         }
+        data=data+' ';
+        t2=t3;
         for (index = 0, pos = 0, flag = 0, c = &data[0]; *c != '\0'; c++, index++) {
             if (*c == ' ') {
                 flag++;
@@ -96,13 +98,15 @@ void File::readFile_Technicians(string fname,ifstream &infile){
     char *c;
     int index, pos;
     int flag;
-    T2 t2;
+    T2 t2,t3;
     string s;
     while (true) {
         getline(infile, data);
         if (data == "SalesMan") {
             break;
         }
+        data=data+' ';
+        t2=t3;
         for (index = 0, pos = 0, flag = 0, c = &data[0]; *c != '\0'; c++, index++) {
             if (*c == ' ') {
                 flag++;
@@ -132,13 +136,15 @@ void File::readFile_SalesMans(string fname,ifstream &infile){
     char *c;
     int index, pos;
     int flag;
-    T2 t2;
+    T2 t2,t3;
     string s;
     while (true) {
         getline(infile, data);
         if (data == "SalesManager") {
             break;
         }
+        data=data+' ';
+        t2=t3;
         for (index = 0, pos = 0, flag = 0, c = &data[0]; *c != '\0'; c++, index++) {
             if (*c == ' ') {
                 flag++;
@@ -168,13 +174,15 @@ void File::readFile_SalesManagers(string fname,ifstream &infile){
     char *c;
     int index, pos;
     int flag;
-    T2 t2;
+    T2 t2,t3;
     string s;
-    getline(infile, data);
     while (true) {
+        getline(infile, data);
         if (data.empty()) {
             break;
         }
+        data=data+' ';
+        t2=t3;
         for (index = 0, pos = 0, flag = 0, c = &data[0]; *c != '\0'; c++, index++) {
             if (*c == ' ') {
                 flag++;

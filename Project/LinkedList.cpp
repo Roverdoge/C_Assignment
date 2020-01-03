@@ -54,10 +54,17 @@ int LinkedList<T1,T2>::Delete(T2 t1) {
     t1.setselect(1);
     //²éÕÒÉ¾³ıÎ»ÖÃ
     Node<T2> *temp=head;
+    if(t1==temp->data){
+        head=temp->next;
+        delete temp;
+        length--;
+        return 1;
+    }
     for(;temp->next!= nullptr;temp=temp->next){
         if(t1 == temp->next->data ){
             Node<T2> *temp2=temp->next->next;
             delete temp->next;
+            length--;
             temp->next=temp2;
             return 1;
         }
