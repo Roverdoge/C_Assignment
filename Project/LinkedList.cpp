@@ -18,6 +18,7 @@ vector<T1>* LinkedList<T1,T2>::Search(T2 t1,int s1,int s2) {
     static vector<T1> vec;
     vec.clear();
     Node<T2>* temp=head;
+    t1.setselect(s1);t1.setSelect(s2);
     for(;temp->next!= nullptr;temp=temp->next){
         temp->data.setselect(s1);temp->data.setSelect(s2);
         if(t1 == temp->data){temp->data.setselect(32),temp->data.setSelect(7);vec.push_back(*temp);}
@@ -101,6 +102,7 @@ vector<T1*>* LinkedList<T1,T2>::Edit(T2 t1,int s1,int s2) {
     static vector<T1*> vec;
     vec.clear();
     Node<T2>* temp=head;
+    t1.setselect(s1);t1.setSelect(s2);
     for(;temp->next!= nullptr;temp=temp->next){
         temp->data.setselect(s1);temp->data.setSelect(s2);
         if(t1 == temp->data){temp->data.setselect(32),temp->data.setSelect(7);vec.push_back(temp);}
@@ -109,9 +111,10 @@ vector<T1*>* LinkedList<T1,T2>::Edit(T2 t1,int s1,int s2) {
     if(vec.empty()){return nullptr;}
     //如果vector不为空，根据num排序后返回vec的地址
     if(vec.size() > 1){
-        Node<T2> **p = &vec[0];
+        Node<T2> **p;
         Node<T2> **q;
         for(int i=0;i<vec.size()-1;i++){
+            p=&vec[i];
             for (int j=i+1;j<vec.size();j++){
                 q=&vec[j];
                 if((*p)->data.getnum()>(*q)->data.getnum()){
@@ -120,7 +123,6 @@ vector<T1*>* LinkedList<T1,T2>::Edit(T2 t1,int s1,int s2) {
                     (*p)->data = temp;
                 }
             }
-            *p = (*p)->next;
         }
     }
     return &vec;
